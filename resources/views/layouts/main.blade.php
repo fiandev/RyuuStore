@@ -11,8 +11,12 @@
 <body>
   <div class="container relative">
     @include("components/nav")
-    @include("components/sidenav")
-    @yield("content")
+    <div class="w-full flex flex-col lg:flex-row">
+      @include("components/sidenav")
+      <div class="w-full">
+        @yield("content")
+      </div>
+    </div>
   </div>
   
   <script src="{{ url(asset("/js/app.js")) }}"></script>

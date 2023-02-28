@@ -17,23 +17,35 @@
 }
 
 .toggle-shadow {
-  @apply z-[4] fixed bg-slate-900 opacity-[0.6] inset-0 w-full h-screen;
+  @apply z-[4] fixed lg:hidden bg-slate-900 opacity-[0.6] inset-0 w-full h-screen;
 }
 
 .sidenav {
-  @apply z-[5] border-r-4 border-white fixed translate-x-[-100%] lg:translate-x-0 w-[60%] px-2 lg:w-10 h-screen flex flex-col;
+  @apply z-[5] border-r-4 border-white fixed lg:relative translate-x-[-100%] lg:translate-x-0 w-[60%] px-2 lg:w-16 h-screen flex flex-col lg:items-center;
 }
 
 .sidenav.active {
-  @apply transition-all translate-x-0;
+  @apply transition-all duration-[0.5s] translate-x-0 lg:w-32 lg:items-start;
 }
 
 .sidenav-item {
-  @apply flex border-l-4 border-slate-800 text-white font-semibold uppercase items-center gap-2 p-2 transition-all;
+  @apply flex items-center justify-center border-l-4 border-slate-800 text-white font-semibold uppercase items-center gap-2 p-2 transition-all lg:w-8 lg:h-8 lg:rounded-md lg:border;
+}
+
+.sidenav.active .sidenav-item {
+  @apply lg:w-fit;
+}
+
+.sidenav-item span {
+  @apply lg:hidden;
+}
+
+.sidenav.active .sidenav-item span {
+  @apply lg:flex;
 }
 
 .sidenav-item:hover {
-  @apply pl-4 bg-slate-800 rounded-r-full rounded-b-full text-white font-bold border-sky-600;
+  @apply pl-4 bg-slate-800 rounded-r-full rounded-b-full lg:p-2 lg:rounded-b-full text-white font-bold border-sky-600;
 }
 
 .carousel-controller {
@@ -42,4 +54,30 @@
 
 .carousel-controller.active {
   @apply bg-main-400;
+}
+.carousel-item {
+  @apply shrink-0 hidden relative w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none;
+}
+
+.carousel-item.active {
+  @apply block;
+}
+
+.carousel-item img {
+  @apply w-full h-full;
+}
+
+.line-controller {
+  @apply absolute right-0 bottom-0 left-0 z-[2] mx-[15%] mb-4 flex list-none justify-center p-0;
+}
+
+.line-controller .item {
+  @apply mx-[3px] box-content h-2 w-8 rounded-full flex-initial cursor-pointer border-0 border-y-2 border-solid border-transparent bg-slate-100 bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none;
+}
+.line-controller .item:hover {
+  @apply bg-main-600 border-2 border-white border;
+}
+
+.line-controller .item.active {
+  @apply bg-main-600;
 }

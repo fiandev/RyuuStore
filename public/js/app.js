@@ -12,6 +12,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 
+
+/*
+// core version + navigation, pagination modules:
+import Swiper, { Navigation, Pagination } from 'swiper';
+
+// import Swiper and modules styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
+*/
+
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
   jquery__WEBPACK_IMPORTED_MODULE_0___default()(".container").css({
     marginTop: jquery__WEBPACK_IMPORTED_MODULE_0___default()("nav").innerHeight() + "px"
@@ -30,6 +42,8 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
     }
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().toggleClass("active");
   });
+
+  /* sidenav show event */
   jquery__WEBPACK_IMPORTED_MODULE_0___default()("#toggle-sidenav").on("click", function () {
     var _this2 = this;
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(".sidenav").toggleClass("active");
@@ -40,6 +54,56 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
       jquery__WEBPACK_IMPORTED_MODULE_0___default()(".toggle-shadow").remove();
     }));
   });
+
+  /*
+  // init Swiper:
+  if ( $(".swiper").length ) {
+    const swiper = new Swiper('.swiper', {
+      direction: 'horizontal',
+      loop: true,
+      centeredSlides: true,
+      slidesPerView: 1,
+       pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      }
+    });
+  }
+  */
+
+  if (jquery__WEBPACK_IMPORTED_MODULE_0___default()("#carousel").length) {
+    var setCarouselIndex = function setCarouselIndex(index) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(".carousel-item, #line-controller button").removeClass("active");
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(".carousel-item").eq(index).toggleClass("active");
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()("#line-controller button").eq(index).toggleClass("active");
+    };
+    var carouselIndex = 0;
+    var carouselItem = jquery__WEBPACK_IMPORTED_MODULE_0___default()(".carousel-item").length - 1;
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(".carousel-item").map(function (i, e) {});
+    for (var i = 0; i < carouselItem + 1; i++) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()("#line-controller").append("\n        <button data-slide-to=".concat(i, " type=\"button\" class=\"item\" aria-current=\"true\" aria-label=\"Slide 1\"></button>\n      "));
+    }
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()("#carousel-previous").on("click", function () {
+      carouselIndex = carouselIndex > 0 ? carouselIndex - 1 : carouselItem;
+      setCarouselIndex(carouselIndex);
+    });
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()("#carousel-next").on("click", function () {
+      carouselIndex = carouselIndex < carouselItem ? carouselIndex + 1 : 0;
+      setCarouselIndex(carouselIndex);
+    });
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()("#line-controller button").on("click", function () {
+      carouselIndex = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr("data-slide-to");
+      setCarouselIndex(carouselIndex);
+    });
+    setCarouselIndex(carouselIndex);
+    setInterval(function () {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()("#carousel-next").click();
+    }, 3000);
+  }
 });
 
 /***/ }),

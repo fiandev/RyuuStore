@@ -1,5 +1,16 @@
 import $ from "jquery";
 
+/*
+// core version + navigation, pagination modules:
+import Swiper, { Navigation, Pagination } from 'swiper';
+
+// import Swiper and modules styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
+*/
+
 $(document).ready(function(){
   $(".container").css({
     marginTop: $("nav").innerHeight() + "px"
@@ -20,6 +31,7 @@ $(document).ready(function(){
     $(this).parent().toggleClass("active");
   });
   
+  /* sidenav show event */
   $("#toggle-sidenav").on("click", function(){
     $(".sidenav").toggleClass("active");
     $(".container").append(
@@ -31,4 +43,65 @@ $(document).ready(function(){
         })
       );
   });
+  
+  /*
+  // init Swiper:
+  if ( $(".swiper").length ) {
+    const swiper = new Swiper('.swiper', {
+      direction: 'horizontal',
+      loop: true,
+      centeredSlides: true,
+      slidesPerView: 1,
+
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      }
+    });
+  }
+  */
+  
+  if ( $("#carousel").length ) {
+    let carouselIndex = 0;
+    let carouselItem = $(".carousel-item").length - 1;
+    
+    $(".carousel-item").map(function(i, e) {
+      
+    });
+    
+    for (let i = 0; i < carouselItem + 1; i++) {
+      $("#line-controller").append(`
+        <button data-slide-to=${ i } type="button" class="item" aria-current="true" aria-label="Slide 1"></button>
+      `);
+    }
+    
+    function setCarouselIndex(index) {
+      $(".carousel-item, #line-controller button").removeClass("active");
+      $(".carousel-item").eq(index).toggleClass("active");
+      $("#line-controller button").eq(index).toggleClass("active");
+    }
+    
+    $("#carousel-previous").on("click", function () {
+      carouselIndex = carouselIndex > 0 ? carouselIndex - 1 : carouselItem;
+      setCarouselIndex(carouselIndex);
+    });
+    $("#carousel-next").on("click", function () {
+      carouselIndex = carouselIndex < carouselItem ? carouselIndex + 1 : 0;
+      setCarouselIndex(carouselIndex);
+    });
+    $("#line-controller button").on("click", function () {
+      carouselIndex = $(this).attr("data-slide-to");
+      setCarouselIndex(carouselIndex);
+    });
+    
+    setCarouselIndex(carouselIndex);
+    
+    setInterval(() => {
+      $("#carousel-next").click();
+    }, 3000);
+  }
 });
