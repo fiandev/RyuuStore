@@ -1,0 +1,17 @@
+.dropdown:hover {
+  @apply transition-all bg-main-600 text-slate-100 outline outline-slate-100;
+}
+.dropdown .dropdown-content {
+  @apply absolute text-main-600 overflow-hidden z-20 h-0 bg-slate-100;
+}
+
+.dropdown.active .dropdown-content {
+  @apply h-fit w-48 transition-all;
+}
+
+.dropdown-content .dropdown-item {
+ @apply p-2 w-full flex gap-2 items-center uppercase;
+}
+.dropdown-content .dropdown-item:hover {
+  @apply bg-gray-300
+}

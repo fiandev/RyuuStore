@@ -5,4 +5,11 @@
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css";
 @import "https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css";
 
-@import "./utilities/components.css";
+@import "./layouts/index.css";
+
+@import "./components/atoms/shadow.css";
+
+@import "./components/organisms/dropdown.css";
+@import "./components/organisms/sidenav.css";
+@import "./components/organisms/carousel.css";
+@import "./components/organisms/product.css";

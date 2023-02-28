@@ -1,0 +1,28 @@
+.sidenav {
+  @apply z-[5] fixed lg:relative translate-x-[-100%] lg:translate-x-0 w-[60%] px-2 lg:w-16 h-screen flex flex-col lg:items-center;
+}
+
+.sidenav.active {
+  @apply transition-all duration-[0.5s] translate-x-0 lg:w-32 lg:items-start;
+}
+
+.sidenav-item {
+  @apply flex items-center lg:justify-center border-l-4 border-slate-800 text-white font-semibold uppercase gap-2 p-2 transition-all lg:w-8 lg:h-8 lg:rounded-md lg:border;
+}
+
+.sidenav.active .sidenav-item {
+  @apply lg:w-fit;
+}
+
+.sidenav-item span {
+  @apply lg:hidden;
+}
+
+.sidenav.active .sidenav-item span {
+  @apply lg:flex;
+}
+
+.sidenav-item:hover {
+  @apply pl-4 bg-slate-800 rounded-r-full rounded-b-full lg:p-2 lg:rounded-b-full text-white font-bold border-sky-600;
+}
+

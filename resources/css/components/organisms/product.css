@@ -1,0 +1,7 @@
+.product-shelf {
+  @apply w-full grid place-items-center gap-2 grid-cols-2 md:grid-cols-4 lg:grid-cols-5;
+}
+
+.product-shelf .item {
+  @apply w-32 h-32 bg-slate-900;
+}

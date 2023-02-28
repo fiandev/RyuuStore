@@ -13,9 +13,9 @@
     @include("components/nav")
     <div class="w-full flex flex-col lg:flex-row">
       @include("components/sidenav")
-      <div class="w-full">
+      <main class="w-full">
         @yield("content")
-      </div>
+      </main>
     </div>
   </div>
   
