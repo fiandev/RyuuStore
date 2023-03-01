@@ -1,25 +1,14 @@
 import $ from "jquery";
 
-/*
-// core version + navigation, pagination modules:
-import Swiper, { Navigation, Pagination } from 'swiper';
-
-// import Swiper and modules styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/autoplay';
-*/
-
 $(document).ready(function(){
-  $(".container").css({
+  $("#container").css({
     marginTop: $("nav").innerHeight() + "px"
   });
   
   /* dropdown event */
   $(".dropdown-toggle").on("click", function(){
     if ( !$(this).parent().hasClass("active") ) {
-      $(".container").append(
+      $("#container").append(
           $("<div>", {
             class: "toggle-shadow"
           }).on("click", () => {
@@ -34,7 +23,7 @@ $(document).ready(function(){
   /* sidenav show event */
   $("#toggle-sidenav").on("click", function(){
     $(".sidenav").toggleClass("active");
-    $(".container").append(
+    $("#container").append(
         $("<div>", {
           class: "toggle-shadow"
         }).on("click", () => {
@@ -43,27 +32,6 @@ $(document).ready(function(){
         })
       );
   });
-  
-  /*
-  // init Swiper:
-  if ( $(".swiper").length ) {
-    const swiper = new Swiper('.swiper', {
-      direction: 'horizontal',
-      loop: true,
-      centeredSlides: true,
-      slidesPerView: 1,
-
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      }
-    });
-  }
-  */
   
   if ( $("#carousel").length ) {
     let carouselIndex = 0;

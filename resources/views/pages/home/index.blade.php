@@ -53,13 +53,14 @@
       <h1 class="border-l-4 border-main-700 px-3">Supported Games</h1>
       <!-- grid items -->
       <div class="product-shelf">
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
+        @for($i = 0; $i < 10; $i++)
+        <div class="item">
+          <img class="product-photo" src="{{ asset("/icons/MLBB-tile_M4_Feb23.jpg") }}" alt="mlbb's photo">
+          <h1 class="product-name">
+            fugiat esse excepteur cillum enim tempor nisi sint laboris eu
+          </h1>
+        </div>
+        @endfor
       </div>
     </section>
     

@@ -419,19 +419,73 @@ section#products {
 
     .product-shelf {
 
-        grid-template-columns: repeat(5, minmax(0, 1fr))
+        grid-template-columns: repeat(6, minmax(0, 1fr))
     }
 }
 
 .product-shelf .item {
 
-    height: 8rem;
+    display: flex;
 
-    width: 8rem;
+    width: 100%;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 0.5rem;
+
+    overflow: hidden;
+
+    border-radius: 0.5rem;
+
+    border-width: 1px;
+
+    --tw-border-opacity: 1;
+
+    border-color: rgb(0 81 202 / var(--tw-border-opacity));
 
     --tw-bg-opacity: 1;
 
-    background-color: rgb(15 23 42 / var(--tw-bg-opacity))
+    background-color: rgb(0 63 157 / var(--tw-bg-opacity));
+
+    padding-bottom: 0.5rem
+}
+
+.product-shelf .item .product-photo {
+
+    height: -moz-max-content;
+
+    height: max-content;
+
+    width: 100%;
+
+    border-radius: 0.5rem
+}
+
+.product-shelf .item .product-name {
+
+    height: 3rem;
+
+    max-height: 3rem;
+
+    overflow: scroll;
+
+    padding-left: 0.5rem;
+
+    padding-right: 0.5rem;
+
+    text-align: center;
+
+    font-size: 0.75rem;
+
+    line-height: 1rem;
+
+    text-transform: capitalize;
+
+    --tw-text-opacity: 1;
+
+    color: rgb(248 250 252 / var(--tw-text-opacity))
 }
 /*
 ! tailwindcss v3.2.7 | MIT License | https://tailwindcss.com
@@ -1035,12 +1089,6 @@ video {
 .basis-full {
   flex-basis: 100%;
 }
-.grid-cols-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-.flex-row {
-  flex-direction: row;
-}
 .flex-row-reverse {
   flex-direction: row-reverse;
 }
@@ -1086,12 +1134,19 @@ video {
 .border-0 {
   border-width: 0px;
 }
+.border {
+  border-width: 1px;
+}
 .border-l-4 {
   border-left-width: 4px;
 }
 .border-main-700 {
   --tw-border-opacity: 1;
   border-color: rgb(0 81 202 / var(--tw-border-opacity));
+}
+.border-rose-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(251 113 133 / var(--tw-border-opacity));
 }
 .bg-main-600 {
   --tw-bg-opacity: 1;
@@ -1286,14 +1341,6 @@ video {
   .md\:block {
     display: block;
   }
-
-  .md\:grid-cols-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .md\:flex-row {
-    flex-direction: row;
-  }
 }
 @media (min-width: 1024px) {
 
@@ -1305,16 +1352,8 @@ video {
     height: 60vh;
   }
 
-  .lg\:grid-cols-5 {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
-
   .lg\:flex-row {
     flex-direction: row;
-  }
-
-  .lg\:items-start {
-    align-items: flex-start;
   }
 
   .lg\:items-center {

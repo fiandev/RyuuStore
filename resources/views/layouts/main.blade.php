@@ -9,9 +9,9 @@
   
 </head>
 <body>
-  <div class="container relative">
+  <div id="container" class="relative">
     @include("components/nav")
-    <div class="w-full flex flex-col lg:flex-row">
+    <div class="flex flex-col lg:flex-row">
       @include("components/sidenav")
       <main class="w-full">
         @yield("content")

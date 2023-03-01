@@ -12,20 +12,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 
-
-/*
-// core version + navigation, pagination modules:
-import Swiper, { Navigation, Pagination } from 'swiper';
-
-// import Swiper and modules styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/autoplay';
-*/
-
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()(".container").css({
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()("#container").css({
     marginTop: jquery__WEBPACK_IMPORTED_MODULE_0___default()("nav").innerHeight() + "px"
   });
 
@@ -33,7 +21,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
   jquery__WEBPACK_IMPORTED_MODULE_0___default()(".dropdown-toggle").on("click", function () {
     var _this = this;
     if (!jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().hasClass("active")) {
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(".container").append(jquery__WEBPACK_IMPORTED_MODULE_0___default()("<div>", {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()("#container").append(jquery__WEBPACK_IMPORTED_MODULE_0___default()("<div>", {
         "class": "toggle-shadow"
       }).on("click", function () {
         jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).click();
@@ -47,34 +35,13 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
   jquery__WEBPACK_IMPORTED_MODULE_0___default()("#toggle-sidenav").on("click", function () {
     var _this2 = this;
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(".sidenav").toggleClass("active");
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(".container").append(jquery__WEBPACK_IMPORTED_MODULE_0___default()("<div>", {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()("#container").append(jquery__WEBPACK_IMPORTED_MODULE_0___default()("<div>", {
       "class": "toggle-shadow"
     }).on("click", function () {
       jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this2).click();
       jquery__WEBPACK_IMPORTED_MODULE_0___default()(".toggle-shadow").remove();
     }));
   });
-
-  /*
-  // init Swiper:
-  if ( $(".swiper").length ) {
-    const swiper = new Swiper('.swiper', {
-      direction: 'horizontal',
-      loop: true,
-      centeredSlides: true,
-      slidesPerView: 1,
-       pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      }
-    });
-  }
-  */
-
   if (jquery__WEBPACK_IMPORTED_MODULE_0___default()("#carousel").length) {
     var setCarouselIndex = function setCarouselIndex(index) {
       jquery__WEBPACK_IMPORTED_MODULE_0___default()(".carousel-item, #line-controller button").removeClass("active");
