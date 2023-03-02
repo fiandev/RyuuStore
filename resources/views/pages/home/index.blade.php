@@ -3,8 +3,8 @@
 @section("content")
   <div class="w-full flex flex-col gap-2">
     <section id="home">
-      <div id="carousel" class="relative overflow-hidden" data-te-carousel-init data-te-carousel-slide>
-        <div class="aspect-video lg:h-[60vh] relative h-full w-full flex basis-full items-center overflow-y-hidden overflow-x-scroll">
+      <div id="carousel" class="carousel" data-te-carousel-init data-te-carousel-slide>
+        <div class="aspect-video relative w-full max-h-96 flex basis-full items-center overflow-y-hidden overflow-x-scroll">
          
           <div class="carousel-item group/corousel-item" data-te-carousel-active data-te-carousel-item style="backface-visibility: hidden">
             <img src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(15).jpg" class="block w-full" alt="..." />
@@ -50,10 +50,10 @@
     </section>
     
     <section id="products">
-      <h1 class="border-l-4 border-main-700 px-3">Supported Games</h1>
+      <h1 class="section-label border-l-4 border-main-700 px-3">Supported Games</h1>
       <!-- grid items -->
       <div class="product-shelf">
-        @for($i = 0; $i < 10; $i++)
+        @for($i = 0; $i < 40; $i++)
         <div class="item">
           <img class="product-photo" src="{{ asset("/icons/MLBB-tile_M4_Feb23.jpg") }}" alt="mlbb's photo">
           <h1 class="product-name">
@@ -61,6 +61,10 @@
           </h1>
         </div>
         @endfor
+      </div>
+      
+      <div class="flex justify-center">
+        <p id="btn-show-all" class="link">show all products</p>
       </div>
     </section>
     

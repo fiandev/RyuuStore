@@ -1,9 +1,28 @@
 import $ from "jquery";
 
+const checkDevice = () => {
+  let screenWidth = $(window).width();
+  if (screenWidth <= 576) return "sm";
+  if (screenWidth <= 960) return "md";
+  if (screenWidth <= 1440) return "lg";
+};
+
+const contentAutoPadding = () => {
+  if (checkDevice() === "lg") {
+    $("main").css({
+      paddingTop: $("#nav").innerHeight() + "px",
+      paddingLeft: $("#sidenav").innerWidth() + "px"
+    });
+  }
+  
+};
+
 $(document).ready(function(){
+  /* auto height container with top navigation */
   $("#container").css({
     marginTop: $("nav").innerHeight() + "px"
   });
+  
   
   /* dropdown event */
   $(".dropdown-toggle").on("click", function(){
@@ -22,7 +41,8 @@ $(document).ready(function(){
   
   /* sidenav show event */
   $("#toggle-sidenav").on("click", function(){
-    $(".sidenav").toggleClass("active");
+    $("#sidenav").toggleClass("active");
+    contentAutoPadding();
     $("#container").append(
         $("<div>", {
           class: "toggle-shadow"
@@ -36,10 +56,6 @@ $(document).ready(function(){
   if ( $("#carousel").length ) {
     let carouselIndex = 0;
     let carouselItem = $(".carousel-item").length - 1;
-    
-    $(".carousel-item").map(function(i, e) {
-      
-    });
     
     for (let i = 0; i < carouselItem + 1; i++) {
       $("#line-controller").append(`
@@ -72,4 +88,8 @@ $(document).ready(function(){
       $("#carousel-next").click();
     }, 3000);
   }
+  
+  
+  /* call utilities functions */
+  contentAutoPadding();
 });

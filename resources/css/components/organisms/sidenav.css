@@ -1,5 +1,5 @@
 .sidenav {
-  @apply z-[5] fixed lg:relative translate-x-[-100%] lg:translate-x-0 w-[60%] px-2 lg:w-16 h-screen flex flex-col lg:items-center;
+  @apply z-[5] fixed lg:left-0 translate-x-[-100%] lg:translate-x-0 w-[60%] px-2 lg:w-16 h-screen flex flex-col lg:items-center;
 }
 
 .sidenav.active {

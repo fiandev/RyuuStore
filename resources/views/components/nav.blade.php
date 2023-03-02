@@ -1,4 +1,4 @@
-<nav class="z-10 w-full top-0 fixed flex items-center gap-4 py-2 px-4 bg-main-600 dark:bg-slate-800">
+<nav id="nav" class="z-10 w-full top-0 fixed flex items-center gap-4 py-2 px-4 bg-main-600 dark:bg-slate-800">
   <div class="flex gap-2 items-center">
     <button id="toggle-sidenav" class="w-8 h-8 flex items-center justify-center">
       <i class="text-xl fa fa-bars p-2 text-slate-100 dark:text-main-600"></i>

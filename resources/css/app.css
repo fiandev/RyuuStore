@@ -8,6 +8,7 @@
 @import "./layouts/index.css";
 
 @import "./components/atoms/shadow.css";
+@import "./components/atoms/link.css";
 
 @import "./components/organisms/dropdown.css";
 @import "./components/organisms/sidenav.css";

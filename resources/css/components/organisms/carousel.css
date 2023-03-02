@@ -1,3 +1,7 @@
+.carousel {
+  @apply relative overflow-hidden;
+}
+
 .carousel-controller {
   @apply rounded-full w-4 h-4 border-main-400 border-2;
 }

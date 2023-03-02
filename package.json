@@ -2,7 +2,7 @@
     "private": true,
     "scripts": {
         "dev": "mix watch",
-        "build": "mix"
+        "build": "mix build --production"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.13",
