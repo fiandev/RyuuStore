@@ -1,28 +1,11 @@
 import $ from "jquery";
-
-const checkDevice = () => {
-  let screenWidth = $(window).width();
-  if (screenWidth <= 576) return "sm";
-  if (screenWidth <= 960) return "md";
-  if (screenWidth <= 1440) return "lg";
-};
-
-const contentAutoPadding = () => {
-  if (checkDevice() === "lg") {
-    $("main").css({
-      paddingTop: $("#nav").innerHeight() + "px",
-      paddingLeft: $("#sidenav").innerWidth() + "px"
-    });
-  }
-  
-};
+import { contentAutoPadding } from "./utils/functions.js";
 
 $(document).ready(function(){
   /* auto height container with top navigation */
   $("#container").css({
     marginTop: $("nav").innerHeight() + "px"
   });
-  
   
   /* dropdown event */
   $(".dropdown-toggle").on("click", function(){
@@ -63,12 +46,6 @@ $(document).ready(function(){
       `);
     }
     
-    function setCarouselIndex(index) {
-      $(".carousel-item, #line-controller button").removeClass("active");
-      $(".carousel-item").eq(index).toggleClass("active");
-      $("#line-controller button").eq(index).toggleClass("active");
-    }
-    
     $("#carousel-previous").on("click", function () {
       carouselIndex = carouselIndex > 0 ? carouselIndex - 1 : carouselItem;
       setCarouselIndex(carouselIndex);
@@ -89,7 +66,24 @@ $(document).ready(function(){
     }, 3000);
   }
   
-  
+  if ( $("#prodcuts") ) {
+    let products = new Paginate({
+      items: ".product-shelf item",
+    });
+    
+    $("#btn-show-all").on("click", function (){
+      products.show()
+    });
+    
+  }
   /* call utilities functions */
   contentAutoPadding();
 });
+
+
+
+function setCarouselIndex(index) {
+  $(".carousel-item, #line-controller button").removeClass("active");
+  $(".carousel-item").eq(index).toggleClass("active");
+  $("#line-controller button").eq(index).toggleClass("active");
+}
